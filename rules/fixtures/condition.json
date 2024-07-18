@@ -1,0 +1,29 @@
+[
+  {
+    "model": "rules.condition",
+    "pk": 1,
+    "fields": {
+      "label": "Family Status is New vs. Returning",
+      "application_field_name": "is_returning",
+      "application_field_value": "False"
+    }
+  },
+  {
+    "model": "rules.condition",
+    "pk": 2,
+    "fields": {
+      "label": "Is Business Owner",
+      "application_field_name": "is_business_owner",
+      "application_field_value": "True"
+    }
+  },
+  {
+    "model": "rules.condition",
+    "pk": 3,
+    "fields": {
+      "label": "Family did not file US taxes in 2021",
+      "application_field_name": "did_file_2021_us_taxes",
+      "application_field_value": "False"
+    }
+  }
+]
