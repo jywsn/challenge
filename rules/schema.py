@@ -1,7 +1,7 @@
 from django.db import transaction
 
 import graphene
-from graphql import GraphQLError
+from graphql.error import GraphQLError
 
 from clarity.decorators import school_required, student_required
 from rules.jobs import process_application_rules
@@ -41,8 +41,6 @@ class AddApplication(graphene.Mutation):
                 did_file_2021_us_taxes=application.did_file_2021_us_taxes
             )
             application_obj.save()
-
-            process_application_rules.delay(application_obj.pk)
 
             transaction.on_commit(lambda: process_application_rules.delay(application_obj.pk))
 
